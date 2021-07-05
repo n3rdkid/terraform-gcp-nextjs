@@ -34,7 +34,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "-t",
         "gcr.io/${var.project}/zip",
         "./"]
-    dir = "./"
+    dir = "infra-terraform/modules/cicd/docker_zip"
     }
     images = [
     "gcr.io/${var.project}/zip"]
