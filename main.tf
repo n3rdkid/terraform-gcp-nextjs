@@ -37,7 +37,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
     dir = "./docker_zip"
     }
     images = [
-      
+
     "gcr.io/${var.project}/zip"]
     step {
     name = "gcr.io/${var.project}/zip"
@@ -60,8 +60,6 @@ resource "google_cloudbuild_trigger" "build-trigger" {
     artifacts {
         objects {
             location = var.artifacts_location
-            paths = [
-            "artifact.zip"]
         }
         }
  }
