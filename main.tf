@@ -70,15 +70,18 @@ resource "google_app_engine_application" "app" {
   project     = var.project
   location_id = var.region
 }
-resource "google_app_engine_standard_app_version" "gcp_terraform" {
+resource "google_app_engine_standard_app_version" "terraform-saurav-test" {
   version_id = "v1"
   runtime    = "nodejs14"
   service = "default"
 
   deployment {
-  zip {
-      source_url = var.artifacts_url
+    zip {
+        source_url = "./Peace.zip"
+    }
   }
+  entrypoint {
+    shell = "cd client && npm run start"
   }
   handlers {
     url_regex = "/.*"
@@ -87,6 +90,5 @@ resource "google_app_engine_standard_app_version" "gcp_terraform" {
       script_path = "auto"
     }
   }
-
   delete_service_on_destroy = true
 }
