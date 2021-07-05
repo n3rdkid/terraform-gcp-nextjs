@@ -66,10 +66,10 @@ resource "google_cloudbuild_trigger" "build-trigger" {
  }
 }
 
-resource "google_app_engine_application" "app" {
-  project     = var.project
-  location_id = var.region
-}
+# resource "google_app_engine_application" "app" {
+#   project     = var.project
+#   location_id = var.region
+# }
 resource "google_app_engine_standard_app_version" "terraform-saurav-test" {
   version_id = "v1"
   runtime    = "nodejs14"
@@ -77,11 +77,8 @@ resource "google_app_engine_standard_app_version" "terraform-saurav-test" {
 
   deployment {
     zip {
-        source_url = "./Peace.zip"
+        source_url = var.artifacts_url
     }
-  }
-  entrypoint {
-    shell = "cd client && npm run start"
   }
   handlers {
     url_regex = "/.*"
@@ -90,5 +87,4 @@ resource "google_app_engine_standard_app_version" "terraform-saurav-test" {
       script_path = "auto"
     }
   }
-  delete_service_on_destroy = true
 }
