@@ -1,4 +1,4 @@
-# terraform-gcp-nextjs
+# terraform-nextjs-gcp-cloudbuild-app_engine
 
 This is a test project.
 1. Every time a push occues Google Cloud Build deploys the latest code to App Engine.
