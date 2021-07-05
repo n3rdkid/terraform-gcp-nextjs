@@ -33,7 +33,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "build",
         "-t",
         "gcr.io/${var.project}/zip",
-        "."]
+        "./client"]
     dir = "./docker_zip"
     }
     images = [
@@ -46,7 +46,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         ".",
         "-x",
         "*/.git/*"]
-    dir = "."
+    dir = "./client"
     }
     step {
     name = "bash"
@@ -54,7 +54,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "ls",
         "-la",
         ]
-    dir = "."
+    dir = "./client"
     }
     artifacts {
         objects {
