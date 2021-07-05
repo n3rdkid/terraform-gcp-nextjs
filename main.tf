@@ -60,6 +60,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
     artifacts {
         objects {
             location = var.artifacts_location
+            paths = ["artifact.zip"]
         }
     }
  }
