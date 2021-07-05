@@ -61,7 +61,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         objects {
             location = var.artifacts_location
         }
-        }
+    }
  }
 }
 
