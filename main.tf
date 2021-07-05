@@ -14,18 +14,18 @@ resource "google_cloudbuild_trigger" "build-trigger" {
     build {
     timeout = "600s"
     step {
-    name = "node:14"
-    entrypoint = "yarn"
-    args = [
-            "install"]
-    dir = "./client"
+      name = "node:14"
+      entrypoint = "yarn"
+      args = [
+              "install"]
+      dir = "./client"
     }
     step {
-    name = "node:14"
-    entrypoint = "yarn"
-    args = [
-        "build"]
-    dir = "./client"
+      name = "node:14"
+      entrypoint = "yarn"
+      args = [
+          "build"]
+      dir = "./client"
     }
     step {
     name = "gcr.io/cloud-builders/docker"
@@ -36,9 +36,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "./"]
     dir = "./docker_zip"
     }
-    images = [
-
-    "gcr.io/${var.project}/zip"]
+    images = ["gcr.io/${var.project}/zip"]
     step {
     name = "gcr.io/${var.project}/zip"
     args = [
@@ -61,9 +59,10 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         objects {
             location = var.artifacts_location
             paths = [
-              "artifact.zip"]
+              "**/artifact.zip"]
         }
     }
+   
  }
 }
 
