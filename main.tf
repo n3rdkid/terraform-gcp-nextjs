@@ -33,7 +33,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "build",
         "-t",
         "gcr.io/${var.project}/zip",
-        "./client"]
+        "./"]
     dir = "./"
     }
     images = [
