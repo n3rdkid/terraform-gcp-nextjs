@@ -34,7 +34,7 @@ resource "google_cloudbuild_trigger" "build-trigger" {
         "-t",
         "gcr.io/${var.project}/zip",
         "./client"]
-    dir = "./docker_zip"
+    dir = "./"
     }
     images = [
     "gcr.io/${var.project}/zip"]
