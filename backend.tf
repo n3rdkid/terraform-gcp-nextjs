@@ -1,7 +1,6 @@
 terraform {
   backend "gcs" { 
-    bucket  = "gcp-nextjs-terraform"
-    prefix  = "dev"
+    bucket  = "cloud-artfiactbuild-test-123-artfiact"
     credentials = "./serviceAccount.json"
   }
 }

@@ -66,10 +66,10 @@ resource "google_cloudbuild_trigger" "build-trigger" {
  }
 }
 
-# resource "google_app_engine_application" "app" {
-#   project     = var.project
-#   location_id = var.region
-# }
+resource "google_app_engine_application" "app" {
+  project     = var.project
+  location_id = var.region
+}
 resource "google_app_engine_standard_app_version" "terraform-saurav-test" {
   version_id = "v1"
   runtime    = "nodejs14"
